@@ -1,30 +1,30 @@
-const events = require('events');
-const util = require('util');
+const fs = require('fs');
 
-// Basic emitter
-/* const myEmitter = new events.EventEmitter();
+// Read and Write Files
+/* fs.readFile(__dirname + '/README.md', 'utf8', (err, data) => {
+  fs.writeFile(__dirname + '/WRITEME.md', data, (err) => { if(err) throw err; });
+  
+  // Delete Files
+  fs.unlink(__dirname + '/WRITEME.md', (err) => {
+    if(err) console.log(`Files doesn't exist`);
+  });
+}); */
 
-myEmitter.on('someEvent', (message) => {
-  console.log(message);
+// Delete directory (Note we are blocking with Sync)
+if(fs.existsSync('stuff')){
+  // Can only remove a directory if it's empty
+  for(file of fs.readdirSync('stuff')){
+    fs.unlinkSync(`./stuff/${file}`);
+  };
+  fs.rmdirSync('stuff');
+}
+
+// Create Directories
+fs.mkdir('stuff', (err)=> {
+  if(err) console.log('File already exists');
+  fs.readFile('./README.md', 'utf8', (err, data)=> {
+    if(err) return;
+    console.log('readFile async call: ' + data);
+    fs.writeFile('./stuff/WRITEME.md', data, (err) => { if(err) return; })
+  })
 });
-
-myEmitter.emit('someEvent', 'Event was emitted'); */
-
-const Person = function(name) {
-  this.name = name;
-};
-
-util.inherits(Person, events.EventEmitter);
-
-let james = new Person('James');
-let mary = new Person('Mary');
-let ryu = new Person('Ryu');
-
-let people = [james, mary, ryu];
-people.forEach((person) => {
-  person.on('speak', (msg) => { console.log(`${person.name} said ${msg}`); });
-});
-
-james.emit('speak', 'I think Node.js is okay');
-mary.emit('speak', 'I prefer Java');
-ryu.emit('speak', 'Eat, drink, man, woman!');
