@@ -3,9 +3,14 @@ const fs = require('fs');
 
 // Streams
 const readStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
+const writeStream = fs.createWriteStream(__dirname + '/writeme.txt', 'utf8');
+
 readStream.on('data', (chunk) => {
   console.warn('New data received');
-  console.log(chunk);
+  // console.log(chunk);
+  writeStream.write(chunk, () => {
+    console.log('Chunk written to file');
+  })
 });
 
 // Server
