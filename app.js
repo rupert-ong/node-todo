@@ -1,6 +1,15 @@
 const http = require('http');
+const fs = require('fs');
 
-const server = http.createServer((req, res) => {
+// Streams
+const readStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
+readStream.on('data', (chunk) => {
+  console.warn('New data received');
+  console.log(chunk);
+});
+
+// Server
+/* const server = http.createServer((req, res) => {
   console.log(`Request was made ${req.url}`);
   res.writeHead(200, {
     'Content-type': 'text/plain'
@@ -14,4 +23,4 @@ const port = process.env.PORT || 3000;
 // set PORT=5000 && set HOST=127.0.0.1 && node app
 server.listen(port, host, () => {
   console.log(`Listening on ${host}:${port}`);
-});
+}); */
