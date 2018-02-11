@@ -3,6 +3,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+app.use('/assets', express.static('public/assets/'));
+
 app.get('/', (req, res, next) => {
   res.render('index', { title:'Homepage' });
 });

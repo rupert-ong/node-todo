@@ -1,0 +1,21 @@
+body {
+  background: skyblue;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 2rem;
+}
+h1, h2 {
+  font-size: 3em;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 2em;
+}
+ul {
+  padding: 0;
+}
+p, li {
+  text-align: center;
+}
