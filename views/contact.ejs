@@ -2,4 +2,10 @@
 <% include partials/nav.ejs %>
   <h1>Contact Us</h1>
   <p>Nope. I won't call back.</p>
+  <form id="contact-form" action="">
+    <label for="who">Who do you want to contact?</label><input type="text" name="who" value="<%= qs.who %>"/>
+    <label for="department">Which department?</label><input type="text" name="department" value="<%= qs.dept %>"/>
+    <label for="email">Your email?</label><input type="text" name="email" value="<%= qs.email %>"/>
+    <input type="submit" value="Submit" />
+  </form>
 <% include partials/footer.ejs %>

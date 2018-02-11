@@ -10,7 +10,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/contact', (req, res, next) => {
-  res.render('contact', { title: 'Contact Us'} );
+  res.render('contact', { title: 'Contact Us', qs: req.query } );
 });
 
 app.get('/profile/:name', (req, res, next) => {
