@@ -4,16 +4,17 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res, next) => {
-  res.status(200).sendFile(__dirname + '/index.html');
+  res.render('index', { title:'Homepage' });
 });
 
 app.get('/contact', (req, res, next) => {
-  res.status(200).sendFile(__dirname + '/contact.html');
+  res.render('contact', { title: 'Contact Us'} );
 });
 
 app.get('/profile/:name', (req, res, next) => {
   const data = {age:29, job: 'ninja', hobbies: ['eating', 'fighting', 'fishing']};
   res.render('profile', {
+    title: `Profile of ${req.params.name}`,
     person: req.params.name,
     data: data
   });
