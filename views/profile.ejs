@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sample Webpage</title>
-  <style>
-    body {
-      background: skyblue;
-      color: #fff;
-      font-family: sans-serif;
-      padding: 2rem;
-    }
-    h1, h2 {
-      font-size: 3em;
-      letter-spacing: 2px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    h2 {
-      font-size: 2em;
-    }
-    ul {
-      padding: 0;
-    }
-    p, li {
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-  <% include partials/nav.ejs %>
+<% include partials/header.ejs %>
+<% include partials/nav.ejs %>
   <h1>Welcome to the Profile of <%= person %></h1>
   <p><strong>Age:</strong> <%= data.age %></p>
   <p><strong>Job:</strong> <%= data.job %></p>
@@ -43,6 +10,4 @@
       <li><%= item %></li>
     <% }); %>
   </ul>
-</body>
-
-</html>
+<% include partials/footer.ejs %>
