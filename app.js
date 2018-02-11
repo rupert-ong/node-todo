@@ -1,9 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.set('view engine', 'ejs');
 
 app.use('/assets', express.static('public/assets/'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res, next) => {
   res.render('index', { title:'Homepage' });
@@ -11,6 +14,11 @@ app.get('/', (req, res, next) => {
 
 app.get('/contact', (req, res, next) => {
   res.render('contact', { title: 'Contact Us', qs: req.query } );
+});
+
+app.post('/contact', (req, res, next) => {
+  console.log(req.body);
+  res.render('contact-success', { title: 'Contact Us', data: req.body } );
 });
 
 app.get('/profile/:name', (req, res, next) => {
