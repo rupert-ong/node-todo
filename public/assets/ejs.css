@@ -7,7 +7,6 @@ body {
 h1, h2 {
   font-size: 3em;
   letter-spacing: 2px;
-  text-align: center;
   text-transform: uppercase;
 }
 h2 {
@@ -16,6 +15,15 @@ h2 {
 ul {
   padding: 0;
 }
-p, li {
-  text-align: center;
+
+label {
+  display:block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
