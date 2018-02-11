@@ -12,7 +12,7 @@ app.get('/contact', (req, res, next) => {
 });
 
 app.get('/profile/:name', (req, res, next) => {
-  const data = {age:29, job: 'ninja'};
+  const data = {age:29, job: 'ninja', hobbies: ['eating', 'fighting', 'fishing']};
   res.render('profile', {
     person: req.params.name,
     data: data

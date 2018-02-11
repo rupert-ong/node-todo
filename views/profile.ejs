@@ -13,13 +13,19 @@
       font-family: sans-serif;
       padding: 2rem;
     }
-    h1 {
+    h1, h2 {
       font-size: 3em;
       letter-spacing: 2px;
       text-align: center;
       text-transform: uppercase;
     }
-    p {
+    h2 {
+      font-size: 2em;
+    }
+    ul {
+      padding: 0;
+    }
+    p, li {
       text-align: center;
     }
   </style>
@@ -29,6 +35,13 @@
   <h1>Welcome to the Profile of <%= person %></h1>
   <p><strong>Age:</strong> <%= data.age %></p>
   <p><strong>Job:</strong> <%= data.job %></p>
+
+  <h2>Hobbies</h2>
+  <ul>
+    <% data.hobbies.forEach(function(item){ %>
+      <li><%= item %></li>
+    <% }); %>
+  </ul>
 </body>
 
 </html>
