@@ -7,6 +7,7 @@
   <title>Todo App</title>
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/todo-list.js"></script>
 </head>
 <body>
   <h1>My Todo List</h1>
@@ -16,9 +17,9 @@
       <button type="submit">Add Item</button>
     </form>
     <ul>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
+      <% todos.forEach((todo) => { %>
+        <li><%= todo.item %></li>
+      <% }); %>
     </ul>
   </div>
 </body>
