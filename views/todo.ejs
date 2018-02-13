@@ -13,12 +13,12 @@
   <h1>My Todo List</h1>
   <div id="todo-table">
     <form action="">
-      <input type="text" name="item" placeholder="Add new item" required>
+      <input type="text" name="item" placeholder="Add new item" required autofocus>
       <button type="submit">Add Item</button>
     </form>
     <ul>
       <% todos.forEach((todo) => { %>
-        <li><%= todo.item %></li>
+        <li data-id="<%= todo._id %>"><%= todo.item %></li>
       <% }); %>
     </ul>
   </div>
