@@ -1,19 +1,25 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 const app = express();
+const todoRoutes = require('./routes/todoRoutes');
 
-// controllers
-const todoController = require('./controllers/todoController');
-
-// set up template engine
+// Express Set up
 app.set('view engine', 'ejs');
 
-// static files routing
+// DB Setup
+mongoose.connect(process.env.MONGODB_CONNECTION);
+mongoose.Promise = global.Promise;
+
+// Middleware
 app.use(express.static('./public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// fire controllers
-todoController(app);
+// Routes
+app.use('/todo', todoRoutes);
 
-// listen to port
+// Listen to port
 app.listen(3000, () => {
   console.log(`Express app is listening on port 3000`);
 });
