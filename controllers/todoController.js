@@ -18,7 +18,7 @@ exports.create_todo = (req, res) => {
       res.status(201).json(result);
     })
     .catch(err => {
-      res.status(500).json({ error: err.mesage });
+      res.status(500).json({ error: err.message });
     });
 }
 
