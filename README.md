@@ -1,7 +1,7 @@
 # Node.js Todo app
-A simple Node.js Todo app using Express, EJS and MongoDB (Mongoose) as soon on NetNinja. 
+A simple Node.js Todo app using Express, EJS and MongoDB (Mongoose) as seen on NetNinja. 
 
-Enhancements include:
+**Enhancements include**:
 * Remove jQuery dependency and using vanilla ES6 JavaScript
 * Remove page reload upon successful ajax calls, and programatically adding and removing node elements
 * Separate route and controller logic and cleaning up the app.js file
